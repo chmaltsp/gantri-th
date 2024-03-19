@@ -8,11 +8,10 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "node --no-warnings=ExperimentalWarning --loader ts-node/esm src/server.ts",
 		"dev": "nodemon --exec 'node --loader ts-node/esm' src/server.ts --watch 'src/**' | pino-pretty",
-		"build": "tsc",
-		"orm": "mikro-orm",
-		"seed": "mikro-orm seeder:run",
-		"migrate": "mikro-orm migration:create",
-		"migrate:up": "mikro-orm migration:up"
+		"orm": "mikro-orm-esm",
+		"seed": "mikro-orm-esm seeder:run",
+		"migrate": "mikro-orm-esm migration:create",
+		"migrate:up": "mikro-orm-esm migration:up"
 	},
 	"author": "",
 	"license": "ISC",

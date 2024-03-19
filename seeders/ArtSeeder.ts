@@ -3,7 +3,7 @@ import { Seeder } from "@mikro-orm/seeder";
 import { parse } from "csv-parse";
 import { createReadStream } from "fs";
 import { finished } from "stream/promises";
-import { Art } from "../src/models/art.entity";
+import { Art } from "../src/models/art.entity.js";
 
 export class ArtSeeder extends Seeder {
 	async run(em: EntityManager): Promise<void> {
