@@ -1,5 +1,6 @@
 import { Options, SqliteDriver } from "@mikro-orm/sqlite";
 import { TsMorphMetadataProvider } from "@mikro-orm/reflection";
+import { Migrator } from "@mikro-orm/migrations";
 import { SeedManager } from "@mikro-orm/seeder";
 
 const config: Options = {
@@ -9,7 +10,7 @@ const config: Options = {
 	// folder-based discovery setup, using common filename suffix
 	entities: ["dist/**/*.entity.js"],
 	entitiesTs: ["src/**/*.entity.ts"],
-	extensions: [SeedManager],
+	extensions: [SeedManager, Migrator],
 	seeder: {
 		path: "./seeders",
 	},

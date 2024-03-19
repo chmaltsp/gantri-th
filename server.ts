@@ -6,13 +6,17 @@ import { reqLogger } from "./src/utils/logger";
 import { RequestContext } from "@mikro-orm/core";
 import initDb from "./src/db";
 
-const init = async () => {
+const init = async (migrate = true) => {
 	dotenv.config();
 
 	const app = express();
 	const port = 3000;
 
 	const db = await initDb();
+
+	if (migrate) {
+		await db.orm.migrator.up();
+	}
 
 	// Add default middlewares
 	app.use(reqLogger);
