@@ -16,6 +16,7 @@ This project is a take home test for Gantri. It is a simple rest api that querie
 3. Seed and Migrate DB `npm run migrate:up && npm run seed`
 4. Start Server `npm start`
 
+To run in dev mode run `npm run dev`
 
 ## Notes
 
