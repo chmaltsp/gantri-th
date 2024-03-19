@@ -1,8 +1,7 @@
 import { Router } from "express";
-import { User } from "../models/user.entity";
+import { User } from "../models/user.entity.js";
 
-import { logger } from "../utils/logger";
-import initDb from "../db";
+import initDb from "../db.js";
 import asyncHandler from "express-async-handler";
 
 const router = Router({ mergeParams: true });

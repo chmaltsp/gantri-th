@@ -1,6 +1,6 @@
 import { Router } from "express";
-import artRoutes from "./art";
-import userRoutes from "./users";
+import artRoutes from "./art.js";
+import userRoutes from "./users.js";
 
 const router = Router({ mergeParams: true });
 

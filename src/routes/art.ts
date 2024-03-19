@@ -1,10 +1,10 @@
 import { Router } from "express";
 import asyncHandler from "express-async-handler";
-import { Art } from "../models/art.entity";
-import { Comment } from "../models/comments.entity";
-import initDb, { DI } from "../db";
-import { validateUser } from "../utils/validateUser";
-import { User } from "../models/user.entity";
+import { Art } from "../models/art.entity.js";
+import { Comment } from "../models/comments.entity.js";
+import initDb, { DI } from "../db.js";
+import { validateUser } from "../utils/validateUser.js";
+import { User } from "../models/user.entity.js";
 
 const router = Router({ mergeParams: true });
 

@@ -1,9 +1,9 @@
 import express, { NextFunction, Request, Response } from "express";
 
-import router from "./src/routes";
-import { reqLogger } from "./src/utils/logger";
+import router from "./routes/index.js";
+import { reqLogger } from "./utils/logger.js";
 import { RequestContext } from "@mikro-orm/core";
-import initDb from "./src/db";
+import initDb from "./db.js";
 import bodyParser from "body-parser";
 
 const init = async (migrate = true) => {

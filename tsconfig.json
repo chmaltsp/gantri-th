@@ -16,12 +16,13 @@
 		"experimentalDecorators": true,
 		"strict": true /* Enable all strict type-checking options. */,
 		/* Skip type checking .d.ts files that are included with TypeScript. */
-		"skipLibCheck": true /* Skip type checking all .d.ts files. */
+		"skipLibCheck": true /* Skip type checking all .d.ts files. */,
+		"esModuleInterop": true
 	},
 	"ts-node": {
 		"esm": true,
 		"transpileOnly": true
 	},
 
-	"include": ["./src/**/*.ts"]
+	"include": ["./src/**/*.ts", "./server.ts", "mikro-orm.config.ts"]
 }

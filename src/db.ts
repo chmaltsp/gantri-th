@@ -1,7 +1,7 @@
 import { MikroORM, EntityManager, EntityRepository } from "@mikro-orm/sqlite";
-import { Art } from "./models/art.entity";
-import { Comment } from "./models/comments.entity";
-import { User } from "./models/user.entity";
+import { Art } from "./models/art.entity.js";
+import { Comment } from "./models/comments.entity.js";
+import { User } from "./models/user.entity.js";
 
 export interface DI {
 	orm: MikroORM;
