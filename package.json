@@ -20,8 +20,9 @@
 		"@mikro-orm/reflection": "^6.1.11",
 		"@mikro-orm/seeder": "^6.1.11",
 		"@mikro-orm/sqlite": "^6.1.11",
-		"dotenv": "^16.4.5",
+		"body-parser": "^1.20.2",
 		"express": "^4.18.3",
+		"express-async-handler": "^1.2.0",
 		"pino": "^8.19.0",
 		"pino-http": "^9.0.0"
 	},

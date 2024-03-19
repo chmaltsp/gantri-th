@@ -1,6 +1,7 @@
-import { Entity, ManyToOne, PrimaryKey, Property } from "@mikro-orm/core";
+import { Entity, ManyToOne, Property } from "@mikro-orm/core";
 import { BaseEntity } from "./baseEntity.entity";
 import { User } from "./user.entity";
+import { Art } from "./art.entity";
 
 @Entity()
 export class Comment extends BaseEntity {
@@ -10,6 +11,12 @@ export class Comment extends BaseEntity {
 	@Property({ type: "date" })
 	createdAt = new Date();
 
-	@ManyToOne()
+	@Property()
+	name!: string;
+
+	@ManyToOne(() => Art)
+	art!: Art;
+
+	@ManyToOne(() => User)
 	user!: User;
 }

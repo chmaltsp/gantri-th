@@ -139,6 +139,16 @@
       "name": "user",
       "indexes": [
         {
+          "columnNames": [
+            "name"
+          ],
+          "composite": false,
+          "keyName": "user_name_unique",
+          "constraint": true,
+          "primary": false,
+          "unique": true
+        },
+        {
           "keyName": "primary",
           "columnNames": [
             "id"
@@ -192,6 +202,24 @@
           "nullable": false,
           "mappedType": "date"
         },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "text"
+        },
+        "art_id": {
+          "name": "art_id",
+          "type": "integer",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "integer"
+        },
         "user_id": {
           "name": "user_id",
           "type": "integer",
@@ -204,6 +232,16 @@
       },
       "name": "comment",
       "indexes": [
+        {
+          "columnNames": [
+            "art_id"
+          ],
+          "composite": false,
+          "keyName": "comment_art_id_index",
+          "constraint": false,
+          "primary": false,
+          "unique": false
+        },
         {
           "columnNames": [
             "user_id"
@@ -227,6 +265,18 @@
       ],
       "checks": [],
       "foreignKeys": {
+        "comment_art_id_foreign": {
+          "constraintName": "comment_art_id_foreign",
+          "columnNames": [
+            "art_id"
+          ],
+          "localTableName": "comment",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "art",
+          "updateRule": "cascade"
+        },
         "comment_user_id_foreign": {
           "constraintName": "comment_user_id_foreign",
           "columnNames": [

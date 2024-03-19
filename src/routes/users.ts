@@ -3,24 +3,41 @@ import { User } from "../models/user.entity";
 
 import { logger } from "../utils/logger";
 import initDb from "../db";
+import asyncHandler from "express-async-handler";
 
-const router = Router();
+const router = Router({ mergeParams: true });
 
-router.get("/", async (req, res) => {
-	const db = await initDb();
-	const user = new User();
+router.get(
+	"/",
+	asyncHandler(async (req, res, next) => {
+		const db = await initDb();
 
-	const allUsers = await db.em.findAll(user, {});
+		const allUsers = await db.em.findAll(User);
 
-	logger.info(allUsers);
+		res.status(200).json(allUsers);
+	}),
+);
 
-	res.send(allUsers);
-});
+router.post(
+	"/",
+	asyncHandler(async (req, res) => {
+		if (!req.body.name || !req.body.age || !req.body.location) {
+			res.status(400).json({ message: "Invalid request" });
+			return;
+		}
+		const db = await initDb();
 
-router.post("/", async (req, res) => {
-	res.send("Hello, World!");
-});
+		const user = new User();
 
-router.use("/users", router);
+		user.name = req.body.name;
+		// Could get away without converting to int, but it's good practice
+		user.age = parseInt(req.body.age);
+		user.location = req.body.location;
+
+		await db.em.persistAndFlush(user);
+
+		res.status(200).json(user);
+	}),
+);
 
 export default router;
