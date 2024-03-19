@@ -7,7 +7,7 @@ import { Art } from "../src/models/art.entity.js";
 
 export class ArtSeeder extends Seeder {
 	async run(em: EntityManager): Promise<void> {
-		const content = await createReadStream("the-tate-collection.csv");
+		const content = createReadStream("the-tate-collection.csv");
 
 		const processFile = async () => {
 			const records = [];
